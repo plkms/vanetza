@@ -67,5 +67,56 @@ CamPermissions CamPermissions::decode(const ByteBuffer& buffer)
     return permissions;
 }
 
+std::string stringify(CamPermission permission)
+{
+    std::string result;
+    switch (permission) {
+        case CamPermission::CenDsrcTollingZone:
+            result = "CEN DSRC Tolling Zone";
+            break;
+        case CamPermission::PublicTransport:
+            result = "Public Transport";
+            break;
+        case CamPermission::SpecialTransport:
+            result = "Special Transport";
+            break;
+        case CamPermission::DangerousGoods:
+            result = "Dangerous Goods";
+            break;
+        case CamPermission::Roadwork:
+            result = "Roadwork";
+            break;
+        case CamPermission::Rescue:
+            result = "Rescue";
+            break;
+        case CamPermission::Emergency:
+            result = "Emergency";
+            break;
+        case CamPermission::SafetyCar:
+            // everybody should have an AMG GT S Safety Car ;-)
+            result = "Safety Car";
+            break;
+        case CamPermission::ClosedLanes:
+            result = "Closed Lanes";
+            break;
+        case CamPermission::RequestForRightOfWay:
+            result = "Request for Right of Way";
+            break;
+        case CamPermission::RequestForFreeCrossingAtTrafficLight:
+            result = "Request for Free Crossing at Traffic Light";
+            break;
+        case CamPermission::NoPassing:
+            result = "No Passing";
+            break;
+        case CamPermission::NoPassingForTrucks:
+            result = "No Passing for Trucks";
+            break;
+        case CamPermission::SpeedLimit:
+            result = "Speed Limit";
+            break;
+    }
+    return result;
+}
+
 } // namespace security
 } // namespace vanetza
